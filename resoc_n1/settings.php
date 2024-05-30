@@ -69,11 +69,11 @@
                     WHERE users.id = '$userId' 
                     GROUP BY users.id
                     ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                if ( ! $lesInformations)
-                {
-                    echo("Échec de la requete : " . $mysqli->error);
-                }
+                $lesInformations = request($laQuestionEnSql);
+                // if ( ! $lesInformations)
+                // {
+                //     echo("Échec de la requete : " . $mysqli->error);
+                // }
                 $user = $lesInformations->fetch_assoc();
 
                 /**

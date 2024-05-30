@@ -42,6 +42,7 @@
              * Etape 2: se connecter à la base de donnée
              */
             include 'connexionSQL.php';
+            include 'tagslist.php';
             // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
 
@@ -51,7 +52,7 @@
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
                 $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
+                $lesInformations = request($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
                 //echo "<pre>" . print_r($user, 1) . "</pre>";
@@ -87,11 +88,11 @@
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                if ( ! $lesInformations)
-                {
-                    echo("Échec de la requete : " . $mysqli->error);
-                }
+                $lesInformations = request($laQuestionEnSql);
+                // if ( ! $lesInformations)
+                // {
+                //     echo("Échec de la requete : " . $mysqli->error);
+                // }
 
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
@@ -113,11 +114,9 @@
                         <footer>
                             <small>♥ <?php echo $post['like_number']?></small>
                            
-                            <?php for ($i = 0; $i < count($tags); $i++){
-                                echo<<<HTML
-                                <a href=""> #$tags[$i]</a>
-                                HTML; 
-                            }?>
+                            <?php 
+                            displayTags($tags);
+                            ?>
                         </footer>
                     </article>
                 <?php } ?>

@@ -22,13 +22,15 @@
                     <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
-                
+
             </nav>
         </header>
+
         <?php
         /**
          * Etape 1: Ouvrir une connexion avec la base de donnée.
          */
+        // on va en avoir besoin pour la suite
         include 'connexionSQL.php';
         ?>
         <div id="wrapper" class='admin'>
@@ -40,7 +42,7 @@
                  */
                 $laQuestionEnSql = "
                 SELECT tags.id AS tag_id, tags.label AS tag_label FROM `tags` LIMIT 50";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
+                $lesInformations = request($laQuestionEnSql);
                 // Vérification
                 if ( ! $lesInformations)
                 {
@@ -74,7 +76,7 @@
                  */
                 $laQuestionEnSql = "
                 SELECT users.id AS user_id, users.alias AS user_alias FROM `users` LIMIT 50";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
+                $lesInformations = request($laQuestionEnSql);
                 // Vérification
                 if ( ! $lesInformations)
                 {

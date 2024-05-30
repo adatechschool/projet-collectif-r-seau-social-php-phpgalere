@@ -41,6 +41,7 @@
              * Etape 2: se connecter à la base de donnée
              */
             include 'connexionSQL.php';
+            include 'tagslist.php';
             // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
 
@@ -111,11 +112,8 @@
                         <footer>
                             <small>♥ <?php echo $post['like_number']?></small>
                            
-                            <?php for ($i = 0; $i < count($tags); $i++){
-                                echo<<<HTML
-                                <a href=""> #$tags[$i]</a>
-                                HTML; 
-                            }?>
+                            <?php displayTags($tags);
+                            ?>
                         </footer>
                     </article>
                 <?php } ?>

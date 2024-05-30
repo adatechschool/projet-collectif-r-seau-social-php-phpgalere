@@ -47,6 +47,7 @@
 
                 // Etape 1: Ouvrir une connexion avec la base de donnée.
                 include 'connexionSQL.php';
+                include 'tagslist.php';
                 // Etape 2: Poser une question à la base de donnée et récupérer ses informations
                 // cette requete vous est donnée, elle est complexe mais correcte, 
                 // si vous ne la comprenez pas c'est normal, passez, on y reviendra
@@ -65,7 +66,7 @@
                     ORDER BY posts.created DESC  
                     LIMIT 5
                     ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
+                $lesInformations = request($laQuestionEnSql);
                 // Vérification
                 if ( ! $lesInformations)
                 {
@@ -79,7 +80,7 @@
                 // NB: à chaque tour du while, la variable post ci dessous reçois les informations du post suivant.
                 while ($post = $lesInformations->fetch_assoc())
                 { 
-                    $tags = explode(',', $post['taglist']);
+                     $tags = explode(',', $post['taglist']);
                 
                 
                     //la ligne ci-dessous doit etre supprimée mais regardez ce 
@@ -103,11 +104,8 @@
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?> </small>
                             <?php 
-                            for($i=0;$i<count($tags);$i++) {
-                                echo <<<HTML
-                                <a href="">#$tags[$i] </a>
-                                HTML;
-                             }
+                            
+                            displayTags($tags);
                               ?>
                         </footer>
                     </article>
