@@ -63,8 +63,8 @@
                     count(DISTINCT recieved.user_id) as totalrecieved 
                     FROM users 
                     LEFT JOIN posts ON posts.user_id=users.id 
-                    LEFT JOIN likes as given ON given.user_id=users.id 
-                    LEFT JOIN likes as recieved ON recieved.post_id=posts.id 
+                    LEFT JOIN likes AS given ON given.user_id=users.id 
+                    LEFT JOIN likes AS recieved ON recieved.post_id=posts.id 
                     WHERE users.id = '$userId' 
                     GROUP BY users.id
                     ";
@@ -78,22 +78,22 @@
                 /**
                  * Etape 4: à vous de jouer
                  */
-                //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puiseffacer la ligne ci-dessous
-                echo "<pre>" . print_r($user, 1) . "</pre>";
+                //@todo: afficher le résultat de la ligne ci dessous, remplacer les valeurs ci-après puis effacer la ligne ci-dessous
+                //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>                
                 <article class='parameters'>
                     <h3>Mes paramètres</h3>
                     <dl>
                         <dt>Pseudo</dt>
-                        <dd>Félicie</dd>
+                        <dd><?php echo $user['alias'] ?></dd>
                         <dt>Email</dt>
-                        <dd>felicie@test.org</dd>
+                        <dd><?php echo $user['email'] ?></dd>
                         <dt>Nombre de message</dt>
-                        <dd>42</dd>
+                        <dd><?php echo $user['totalpost'] ?></dd>
                         <dt>Nombre de "J'aime" donnés </dt>
-                        <dd>12</dd>
+                        <dd><?php echo $user['totalgiven'] ?></dd>
                         <dt>Nombre de "J'aime" reçus</dt>
-                        <dd>53</dd>
+                        <dd><?php echo $user['totalrecieved'] ?></dd>
                     </dl>
 
                 </article>
