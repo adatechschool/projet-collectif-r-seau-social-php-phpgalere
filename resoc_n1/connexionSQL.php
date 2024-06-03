@@ -1,7 +1,4 @@
 <?php 
-    
-
-   
 function request($laQuestionEnSql) {
     $mysqli = new mysqli("localhost", "root", "root", "socialnetwork"); 
     if ($mysqli->connect_errno)
