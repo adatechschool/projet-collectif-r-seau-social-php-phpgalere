@@ -67,15 +67,6 @@
                     LIMIT 5
                     ";
                 $lesInformations = request($laQuestionEnSql);
-                // Vérification
-                if ( ! $lesInformations)
-                {
-                    echo "<article>";
-                    echo("Échec de la requete : " . $mysqli->error);
-                    echo("<p>Indice: Vérifiez la requete  SQL suivante dans phpmyadmin<code>$laQuestionEnSql</code></p>");
-                    exit();
-                }
-
                 // Etape 3: Parcourir ces données et les ranger bien comme il faut dans du html
                 // NB: à chaque tour du while, la variable post ci dessous reçois les informations du post suivant.
                 while ($post = $lesInformations->fetch_assoc())

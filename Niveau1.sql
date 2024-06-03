@@ -83,7 +83,7 @@ INSERT INTO `likes` (`id`, `user_id`, `post_id`) VALUES
 (9, 3, 9),
 (10, 3, 10),
 (11, 1, 9),
-(12, 2, 9),
+(12, 2, 9),$mysqli->query($laQuestionEnSql);
 (13, 4, 9),
 (14, 5, 9);
 
