@@ -41,18 +41,13 @@
             <main class='contacts'>
                 <?php
                 // Etape 1: récupérer l'id de l'utilisateur
-                $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de donnée
                 include 'connexionSQL.php';
+                include 'requests.php';
                 // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                 // Etape 3: récupérer le nom de l'utilisateur
-                $laQuestionEnSql = "
-                    SELECT users.* 
-                    FROM followers 
-                    LEFT JOIN users ON users.id=followers.followed_user_id 
-                    WHERE followers.following_user_id='$userId'
-                    GROUP BY users.id
-                    ";
+                $folderName = "subscriptionsUsers";
+                $laQuestionEnSql = request($folderName);
                 $lesInformations = connexion($laQuestionEnSql);
                 // Etape 4: à vous de jouer
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 

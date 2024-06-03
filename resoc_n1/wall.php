@@ -34,7 +34,6 @@
              * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
              * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
              */
-            $userId =intval($_GET['user_id']);
             ?>
             <?php
             /**
@@ -42,6 +41,7 @@
              */
             include 'connexionSQL.php';
             include 'tagslist.php';
+            include 'requests.php';
             ?>
 
             <aside>
@@ -49,8 +49,8 @@
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */                
-                $laQuestionEnSql = "
-                SELECT * FROM users WHERE id= '$userId' ";
+                $folderName = "wallId";
+                $laQuestionEnSql = request($folderName);
                 $lesInformations = connexion($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
@@ -69,18 +69,8 @@
                 /**
                  * Etape 3: récupérer tous les messages de l'utilisatrice
                  */
-                $laQuestionEnSql = "
-                    SELECT posts.content, posts.created, users.alias as author_name, 
-                    COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
-                    FROM posts
-                    JOIN users ON  users.id=posts.user_id
-                    LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
-                    LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
-                    LEFT JOIN likes      ON likes.post_id  = posts.id 
-                    WHERE posts.user_id='$userId' 
-                    GROUP BY posts.id
-                    ORDER BY posts.created DESC  
-                    ";
+                $folderName = "wallPosts";
+                $laQuestionEnSql = request($folderName);
                 $lesInformations = connexion($laQuestionEnSql);
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php

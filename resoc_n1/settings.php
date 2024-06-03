@@ -46,29 +46,20 @@
                  * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
                  * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
                  */
-                $userId = intval($_GET['user_id']);
+               
 
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
                 include 'connexionSQL.php';
+                include 'requests.php';
                 // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
 
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
-                $laQuestionEnSql = "
-                    SELECT users.*, 
-                    count(DISTINCT posts.id) as totalpost, 
-                    count(DISTINCT given.post_id) as totalgiven, 
-                    count(DISTINCT recieved.user_id) as totalrecieved 
-                    FROM users 
-                    LEFT JOIN posts ON posts.user_id=users.id 
-                    LEFT JOIN likes AS given ON given.user_id=users.id 
-                    LEFT JOIN likes AS recieved ON recieved.post_id=posts.id 
-                    WHERE users.id = '$userId' 
-                    GROUP BY users.id
-                    ";
+                $folderName = "settingsUsers";
+                $laQuestionEnSql = request($folderName);
                 $lesInformations = connexion($laQuestionEnSql);
                 // if ( ! $lesInformations)
                 // {
