@@ -17,7 +17,10 @@ ORDER BY posts.created DESC
 LIMIT 5
 ";
 
-$requests = [$news];
+$admin = "
+SELECT tags.id AS tag_id, tags.label AS tag_label FROM `tags` LIMIT 50";
+
+$requests = array("news" => $news, "admin" => $admin);
 
 function request($folderName){
     for ($i=0; $i < count($requests) ; $i++) { 
