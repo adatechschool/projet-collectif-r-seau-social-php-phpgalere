@@ -35,7 +35,6 @@
             /**
              * Etape 1: Le mur concerne un utilisateur en particulier
              */
-            $userId = intval($_GET['user_id']);
             ?>
             <?php
             /**
@@ -43,6 +42,7 @@
              */
             include 'connexionSQL.php';
             include 'tagslist.php';
+            include 'requests.php'; 
             // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
 
@@ -51,7 +51,8 @@
                 /**
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
-                $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
+                $folderName = "feedUsers"; 
+                $laQuestionEnSql = request($folderName); 
                 $lesInformations = connexion($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
@@ -72,22 +73,8 @@
                 /**
                  * Etape 3: récupérer tous les messages des abonnements
                  */
-                $laQuestionEnSql = "
-                    SELECT posts.content,
-                    posts.created,
-                    users.alias as author_name,  
-                    count(likes.id) as like_number,  
-                    GROUP_CONCAT(DISTINCT tags.label) AS taglist 
-                    FROM followers 
-                    JOIN users ON users.id=followers.followed_user_id
-                    JOIN posts ON posts.user_id=users.id
-                    LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
-                    LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
-                    LEFT JOIN likes      ON likes.post_id  = posts.id 
-                    WHERE followers.following_user_id='$userId' 
-                    GROUP BY posts.id
-                    ORDER BY posts.created DESC  
-                    ";
+                $folderName = "feedPosts"; 
+                 $laQuestionEnSql = request($folderName); 
                 $lesInformations = connexion($laQuestionEnSql);
                 // if ( ! $lesInformations)
                 // {

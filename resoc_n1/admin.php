@@ -32,6 +32,7 @@
          */
         // on va en avoir besoin pour la suite
         include 'connexionSQL.php';
+        include 'requests.php'; 
         ?>
         <div id="wrapper" class='admin'>
             <aside>
@@ -40,8 +41,8 @@
                 /*
                  * Etape 2 : trouver tous les mots clés
                  */
-                $laQuestionEnSql = "
-                SELECT tags.id AS tag_id, tags.label AS tag_label FROM `tags` LIMIT 50";
+                $folderName = "adminTags"; 
+                $laQuestionEnSql = request($folderName); 
                 $lesInformations = connexion($laQuestionEnSql);
                 /*
                  * Etape 3 : @todo : Afficher les mots clés en s'inspirant de ce qui a été fait dans news.php
@@ -67,8 +68,8 @@
                  * Etape 4 : trouver tous les mots clés
                  * PS: on note que la connexion $mysqli à la base a été faite, pas besoin de la refaire.
                  */
-                $laQuestionEnSql = "
-                SELECT users.id AS user_id, users.alias AS user_alias FROM `users` LIMIT 50";
+                $folderName = "adminUsers"; 
+                $laQuestionEnSql = request($folderName); 
                 $lesInformations = connexion($laQuestionEnSql);
 
                 /*
