@@ -69,7 +69,7 @@
                     WHERE users.id = '$userId' 
                     GROUP BY users.id
                     ";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
                 // if ( ! $lesInformations)
                 // {
                 //     echo("Échec de la requete : " . $mysqli->error);

@@ -51,7 +51,7 @@
                     WHERE followers.followed_user_id='$userId'
                     GROUP BY users.id
                     ";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
                 // Etape 4: à vous de jouer
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 
                 while($users = $lesInformations -> fetch_assoc()){

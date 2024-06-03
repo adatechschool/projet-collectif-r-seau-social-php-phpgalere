@@ -1,5 +1,5 @@
 <?php 
-function request($laQuestionEnSql) {
+function connexion($laQuestionEnSql) {
     $mysqli = new mysqli("localhost", "root", "root", "socialnetwork"); 
     if ($mysqli->connect_errno)
     {

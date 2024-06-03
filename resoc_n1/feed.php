@@ -52,7 +52,7 @@
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
                 $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
                 //echo "<pre>" . print_r($user, 1) . "</pre>";
@@ -88,7 +88,7 @@
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
                 // if ( ! $lesInformations)
                 // {
                 //     echo("Échec de la requete : " . $mysqli->error);

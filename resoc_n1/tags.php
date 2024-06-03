@@ -50,7 +50,7 @@
                  * Etape 3: récupérer le nom du mot-clé
                  */
                 $laQuestionEnSql = "SELECT * FROM tags WHERE id= '$tagId' ";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
                 $tag = $lesInformations->fetch_assoc();
                 /* @todo: afficher le résultat de la ligne ci dessous, remplacer XXX par le label et effacer la ligne ci-dessous */
                 // echo "<pre>" . print_r($tag, 1) . "</pre>";
@@ -86,7 +86,7 @@
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
 
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php

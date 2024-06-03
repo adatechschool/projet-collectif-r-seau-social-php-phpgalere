@@ -42,7 +42,7 @@
                  */
                 $laQuestionEnSql = "
                 SELECT tags.id AS tag_id, tags.label AS tag_label FROM `tags` LIMIT 50";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
                 /*
                  * Etape 3 : @todo : Afficher les mots clés en s'inspirant de ce qui a été fait dans news.php
                  * Attention à ne pas oublier de modifier tag_id=321 avec l'id du mot dans le lien
@@ -69,7 +69,7 @@
                  */
                 $laQuestionEnSql = "
                 SELECT users.id AS user_id, users.alias AS user_alias FROM `users` LIMIT 50";
-                $lesInformations = request($laQuestionEnSql);
+                $lesInformations = connexion($laQuestionEnSql);
 
                 /*
                  * Etape 5 : @todo : Afficher les utilisatrices en s'inspirant de ce qui a été fait dans news.php
