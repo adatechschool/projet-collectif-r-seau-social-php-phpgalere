@@ -1,45 +1,53 @@
 body{
-    background-color: #003;
     font-family: Arial;
+    background-image: url('this-is-fine.gif') ;
+    background-size: 100vw;
 }
 
-a{text-decoration: none; color:black;}
-a:hover{text-decoration: underline;}
+a{
+    text-decoration: none; 
+    font-size: 16px;
+    color:rgb(239, 243, 238);
+}
+
+a:hover{
+    text-decoration: underline;
+}
 
 body>header{
-    background-color: #fff;
     display:flex;
     width:80em;
     margin:0 auto 2em auto;    
     padding:0;
-
+    border-radius: 5em;
 }
 body>header img{
     height:5em;
+    border-radius: 3em;
 }
 body>header #menu {
     display:flex;
     width:50%;
     align-items: stretch;
-    border-left: 1px solid #99b;
 }
 body>header #menu a{
     flex:1;
     text-align: center;
     padding-top:2em;
-    border-right: 1px solid #99b;
-}
-body>header a:hover
-{
-    background-color: #99b;
+    font-size: 20px; 
+    font-family: system-ui;
+    font-weight: bolder;
 }
 body>header ul{list-style: none;}
 body>header #user
 {
     margin-left: auto;
     flex:0.2;
-    border-left: 1px solid #99b;
+    font-size: 20px; 
+    font-family: system-ui;
+    font-weight: bolder;
 }
+
 body>header #user>a{
     display:block;
     text-align: center;
@@ -52,10 +60,9 @@ body>header #user ul{
     padding:0;
     margin:0;
     margin-left:-5em;
-    background-color: #fff;
-    border: 1px solid #99b;
-
-    z-index: 1;
+    background-color: #be9116;
+    /* border: 1px solid #99b;
+    z-index: 1; */
 }
 body>header #user ul li a{
     display:block;
@@ -74,15 +81,17 @@ body>header #user:hover ul{
     margin:0 auto 2em auto;
 }
 #wrapper aside{
-    background-color: #fff;
+    background: linear-gradient(rgb(70, 69, 69), rgb(230, 196, 9) 30%);
+    border: 4mm ridge rgba(220, 166, 50, 0.6);
     flex:1;
     padding:1em;
-    border-radius: 1em;    
+    border-radius: 3%;    
 }
 #wrapper aside img{
     display: block;
     width:50%;
     margin:auto;
+    border-radius: 50cap;
 }
 
 #wrapper main{
@@ -92,7 +101,8 @@ body>header #user:hover ul{
     overflow-y:  scroll;
 }
 #wrapper main article{
-    background-color: #fff;
+    border: 0.5mm ridge rgba(220, 203, 50, 0.6);
+    background-color: #bbcc86;
     padding:1em;
     margin-bottom: 1em ;
     border-radius: 1em;
@@ -112,6 +122,7 @@ body>header #user:hover ul{
     margin-bottom: 1em;
 }
 #wrapper main article p{
+    
     margin:0;
 }
 #wrapper main article footer{
@@ -123,9 +134,9 @@ body>header #user:hover ul{
 }
 
 #wrapper.admin{flex-direction: row-reverse}
-#wrapper.admin aside{flex:1;margin-left:1em;border-radius:0;padding:0;}
-#wrapper.admin main{flex:2;background-color: #fff;border-radius: 0;padding:0;}
-#wrapper.admin h2{text-align: center;}
+#wrapper.admin aside{flex:1;margin-left:1em;border-radius:3%;padding:0;}
+#wrapper.admin main{flex:2;border-radius: 0;padding:0;}
+#wrapper.admin h2{text-align: center; color: white; }
 #wrapper.admin h3{margin:0;}
 #wrapper.admin nav{text-align: right;}
 #wrapper.admin article{border:1px solid #ddd;border-radius: 1em;padding:1em;margin:1em;}
