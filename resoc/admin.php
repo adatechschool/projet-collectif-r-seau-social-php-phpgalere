@@ -63,10 +63,10 @@ include 'menu.php';
                         <p>id:<?php echo$tag['user_id']?></p>
                         <nav>
                             <a href="wall.php?user_id=<?php echo$tag['user_id']?>">Mur</a>
-                            | <a href="feed.php?user_id=<?php echo$tag['user_id']?>">Flux</a>
-                            | <a href="settings.php?user_id=<?php echo$tag['user_id']?>">Paramètres</a>
-                            | <a href="followers.php?user_id=<?php echo$tag['user_id']?>">Suiveurs</a>
-                            | <a href="subscriptions.php?user_id=<?php echo$tag['user_id']?>">Abonnements</a>
+                            &nbsp <a href="feed.php?user_id=<?php echo$tag['user_id']?>">Flux</a>
+                            &nbsp <a href="settings.php?user_id=<?php echo$tag['user_id']?>">Paramètres</a>
+                            &nbsp <a href="followers.php?user_id=<?php echo$tag['user_id']?>">Suiveurs</a>
+                            &nbsp <a href="subscriptions.php?user_id=<?php echo$tag['user_id']?>">Abonnements</a>
                         </nav>
                     </article>
                 <?php } ?>
