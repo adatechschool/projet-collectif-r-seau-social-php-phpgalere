@@ -1,34 +1,10 @@
 <?php
-session_start();
+include 'menu.php';
 ?>
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>ReSoC - Connexion</title> 
-        <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
-    </head>
+    
     <body>
-        <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
-
-            </nav>
-        </header>
-
         <div id="wrapper" >
 
             <aside>
@@ -39,7 +15,9 @@ session_start();
                 <article>
                     <h2>Connexion</h2>
                     <?php
+                    include 'session.php';
                     /**
+                     * 
                      * TRAITEMENT DU FORMULAIRE
                      */
                     // Etape 1 : vérifier si on est en train d'afficher ou de traiter le formulaire
