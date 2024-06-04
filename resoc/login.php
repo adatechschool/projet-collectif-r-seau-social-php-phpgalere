@@ -15,7 +15,7 @@ include 'menu.php';
                 <article>
                     <h2>Connexion</h2>
                     <?php
-                    include 'session.php';
+
                     /**
                      * 
                      * TRAITEMENT DU FORMULAIRE

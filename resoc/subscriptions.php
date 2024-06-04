@@ -21,8 +21,7 @@ include 'menu.php';
                 <?php
                 // Etape 1: récupérer l'id de l'utilisateur
                 // Etape 2: se connecter à la base de donnée
-                include 'connexionSQL.php';
-                include 'requests.php';
+
                 // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                 // Etape 3: récupérer le nom de l'utilisateur
                 $folderName = "subscriptionsUsers";

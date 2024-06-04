@@ -10,8 +10,7 @@ include 'menu.php';
          * Etape 1: Ouvrir une connexion avec la base de donnée.
          */
         // on va en avoir besoin pour la suite
-        include 'connexionSQL.php';
-        include 'requests.php'; 
+
         ?>
         <div id="wrapper" class='admin'>
             <aside>

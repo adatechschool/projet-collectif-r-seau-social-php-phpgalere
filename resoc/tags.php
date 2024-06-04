@@ -14,14 +14,7 @@ include 'menu.php';
              * Etape 1: Le mur concerne un mot-clé en particulier
              */
             ?>
-            <?php
-            /**
-             * Etape 2: se connecter à la base de donnée
-             */
-            include 'connexionSQL.php';
-            include 'tagslist.php';
-            include 'requests.php';
-            ?>
+
 
             <aside>
                 <?php

@@ -27,10 +27,8 @@ include 'menu.php';
                  */
 
                 // Etape 1: Ouvrir une connexion avec la base de donnée.
-                include 'connexionSQL.php';
-                include 'tagslist.php';
-                include 'requests.php';
-                include 'session.php';
+
+                // include 'session.php';
                 
                 // Etape 2: Poser une question à la base de donnée et récupérer ses informations
                 // cette requete vous est donnée, elle est complexe mais correcte, 
