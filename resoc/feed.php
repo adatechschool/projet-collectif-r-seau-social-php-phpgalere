@@ -3,6 +3,7 @@ include 'menu.php';
 ?>
 <!doctype html>
 <html lang="fr">
+    
     <body>
         
         <div id="wrapper">
